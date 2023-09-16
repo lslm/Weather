@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var preferences = Preferences()
+    
+    let currentWeather = Weather(city: "Mogi das Cruzes, SP", dayOfTheWeek: "Monday", icon: "cloud.sun.fill", temperature: 79)
     
     let futureForecasts = [
         Forecast(id: 1, day: "TUE", icon: "cloud.sun.fill", temperature: 74),
@@ -19,62 +22,22 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [Color("heavyblue"), Color("lightblue")]),
-                startPoint: .top,
-                endPoint: .bottomTrailing
+            BackgroundView(
+                [
+                    preferences.isNight ? Color(.black) : Color("heavyblue"),
+                    preferences.isNight ? Color(.gray) : Color("lightblue")
+                ]
             )
-            .ignoresSafeArea()
             
             VStack {
-                Text("Mogi das Cruzes, SP")
-                    .font(.system(size: 16, weight: .medium, design: .rounded))
-                    .foregroundStyle(.thickMaterial)
-                
-                Spacer()
-                
-                VStack {
-                    Image(systemName: "cloud.sun.fill")
-                        .renderingMode(.original)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200)
-                    
-                    //                    Image(systemName: "cloud.sun.fill")
-                    //                        .renderingMode(.original)
-                    //                        .resizable()
-                    //                        Usage of aspectRatio
-                    //                        .aspectRatio(contentMode: .fit)
-                    //                        .frame(width: 200, height: 100)
-                    
-                    Text("76º")
-                        .font(.system(size: 92, weight: .medium, design: .rounded))
-                        .foregroundStyle(.thickMaterial)
-                }
-                
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    ForEach(futureForecasts) { forecast in
-                        Group {
-                            ExtractedView(forecast: forecast)
-                            Spacer()
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
+                MainWeatherView(currentWeather: currentWeather, futureForecasts: futureForecasts, currentPreferences: preferences)
                 
                 Spacer()
                 
                 Button {
-                    print("Done")
+                    preferences.isNight.toggle()
                 } label: {
-                    Text("Change Day Time")
-                        .frame(width: 200, height: 42)
-                        .background(Color.white)
-                        .font(.system(size: 20, weight: .medium, design: .rounded))
-                        .cornerRadius(8)
+                    WeatherButton(text: "Change Day Time", foregroundColor: Color.blue, backgroundColor: Color.white)
                 }
                 
                 
@@ -88,28 +51,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-}
-
-struct ExtractedView: View {
-    let forecast: Forecast
-    
-    var body: some View {
-        VStack {
-            Text(forecast.day)
-                .font(.system(size: 16, weight: .semibold, design: .rounded))
-                .foregroundStyle(.thickMaterial)
-                .padding(.bottom)
-            
-            Image(systemName: forecast.icon)
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
-                
-            
-            Text("\(forecast.temperature)º")
-                .font(.system(size: 24, weight: .semibold, design: .rounded))
-                .foregroundStyle(.white)
-        }
-    }
 }
