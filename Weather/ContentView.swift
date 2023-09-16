@@ -32,11 +32,12 @@ struct ContentView: View {
                 Spacer()
                 
                 Button {
-                    isNight.toggle()
+                    withAnimation {
+                        isNight.toggle()
+                    }
                 } label: {
                     WeatherButton(text: "Change Day Time", foregroundColor: Color.blue, backgroundColor: Color.white)
                 }
-                
                 
                 Spacer()
             }

@@ -17,14 +17,13 @@ struct CurrentWeatherView: View {
                 .font(.system(size: 28, weight: .medium, design: .rounded))
                 .foregroundStyle(.white)
             
-            withAnimation {
-                Image(systemName: isNight ? "moon.stars.fill" : currentWeather.icon)
-                    .symbolRenderingMode(.multicolor)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    .transition(.scale)
-            }
+            
+            Image(systemName: isNight ? "moon.stars.fill" : currentWeather.icon)
+                .symbolRenderingMode(.multicolor)
+                .resizable()
+                .scaledToFit()
+                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+            
             
             Text("\(currentWeather.temperature)º")
                 .font(.system(size: 92, weight: .medium, design: .rounded))
