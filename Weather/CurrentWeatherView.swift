@@ -19,7 +19,7 @@ struct CurrentWeatherView: View {
             
             withAnimation {
                 Image(systemName: isNight ? "moon.stars.fill" : currentWeather.icon)
-                    .renderingMode(.original)
+                    .symbolRenderingMode(.multicolor)
                     .resizable()
                     .scaledToFit()
                     .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
@@ -35,7 +35,7 @@ struct CurrentWeatherView: View {
 
 #Preview {
     ZStack {
-        Color(.blue)
+        Color(.black)
         CurrentWeatherView(currentWeather: Weather(city: "Mogi das Cruzes", dayOfTheWeek: "Monday", icon: "cloud.sun.fill", temperature: 76), isNight: .constant(false)
         )
     }

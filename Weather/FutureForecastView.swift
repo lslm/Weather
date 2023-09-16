@@ -18,12 +18,11 @@ struct FutureForecastView: View {
                 .padding(.bottom)
             
             Image(systemName: forecast.icon)
-                .renderingMode(.original)
+                .symbolRenderingMode(.multicolor)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 40, height: 40)
+                .frame(width: 42, height: 42)
                 
-            
             Text("\(forecast.temperature)º")
                 .font(.system(size: 24, weight: .semibold, design: .rounded))
                 .foregroundStyle(.white)

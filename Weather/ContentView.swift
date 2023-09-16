@@ -23,10 +23,7 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             BackgroundView(
-                [
-                    isNight ? Color(.black) : Color("heavyblue"),
-                    isNight ? Color(.gray) : Color("lightblue")
-                ]
+                isNight ? Color.black : Color.blue
             )
             
             VStack {

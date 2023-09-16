@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct BackgroundView: View {
-    let backgroundColors: [Color]
+    let backgroundColor: Color
     
-    init(_ backgroundColors: [Color]) {
-        self.backgroundColors = backgroundColors
+    init(_ backgroundColor: Color) {
+        self.backgroundColor = backgroundColor
     }
     
     var body: some View {
-        LinearGradient(
-            gradient: Gradient(colors: backgroundColors),
-            startPoint: .top,
-            endPoint: .bottomTrailing
-        )
-        .ignoresSafeArea()
+//        LinearGradient(
+//            gradient: Gradient(colors: backgroundColors),
+//            startPoint: .top,
+//            endPoint: .bottomTrailing
+//        )
+//        .ignoresSafeArea()
+        ContainerRelativeShape()
+            .fill(backgroundColor.gradient)
+            .ignoresSafeArea()
     }
 }
 
 #Preview {
-    BackgroundView([Color(.red), Color(.blue)])
+    BackgroundView(Color.darkgreen)
 }
