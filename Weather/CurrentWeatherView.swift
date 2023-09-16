@@ -9,12 +9,7 @@ import SwiftUI
 
 struct CurrentWeatherView: View {
     let currentWeather: Weather
-    @ObservedObject var currentPreferences: Preferences
-    
-    init(currentWeather: Weather, currentPreferences: Preferences) {
-        self.currentWeather = currentWeather
-        self.currentPreferences = currentPreferences
-    }
+    @Binding var isNight: Bool
     
     var body: some View {
         VStack {
@@ -23,7 +18,7 @@ struct CurrentWeatherView: View {
                 .foregroundStyle(.white)
             
             withAnimation {
-                Image(systemName: currentPreferences.isNight ? "moon.stars.fill" : currentWeather.icon)
+                Image(systemName: isNight ? "moon.stars.fill" : currentWeather.icon)
                     .renderingMode(.original)
                     .resizable()
                     .scaledToFit()
@@ -41,6 +36,7 @@ struct CurrentWeatherView: View {
 #Preview {
     ZStack {
         Color(.blue)
-        CurrentWeatherView(currentWeather: Weather(city: "Mogi das Cruzes", dayOfTheWeek: "Monday", icon: "cloud.sun.fill", temperature: 76), currentPreferences: Preferences())
+        CurrentWeatherView(currentWeather: Weather(city: "Mogi das Cruzes", dayOfTheWeek: "Monday", icon: "cloud.sun.fill", temperature: 76), isNight: .constant(false)
+        )
     }
 }

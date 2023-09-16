@@ -22,7 +22,6 @@
 		762FEAB02AB62AF8004B1D64 /* CurrentCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762FEAAF2AB62AF8004B1D64 /* CurrentCityView.swift */; };
 		762FEAB22AB62B3D004B1D64 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762FEAB12AB62B3D004B1D64 /* BackgroundView.swift */; };
 		762FEAB52AB62D1D004B1D64 /* WeatherButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762FEAB42AB62D1D004B1D64 /* WeatherButton.swift */; };
-		762FEAB72AB631E5004B1D64 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762FEAB62AB631E5004B1D64 /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +60,6 @@
 		762FEAAF2AB62AF8004B1D64 /* CurrentCityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCityView.swift; sourceTree = "<group>"; };
 		762FEAB12AB62B3D004B1D64 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		762FEAB42AB62D1D004B1D64 /* WeatherButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherButton.swift; sourceTree = "<group>"; };
-		762FEAB62AB631E5004B1D64 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 				762FEAAD2AB62A6F004B1D64 /* MainWeatherView.swift */,
 				762FEAAF2AB62AF8004B1D64 /* CurrentCityView.swift */,
 				762FEAB12AB62B3D004B1D64 /* BackgroundView.swift */,
-				762FEAB62AB631E5004B1D64 /* Preferences.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				762FEAB52AB62D1D004B1D64 /* WeatherButton.swift in Sources */,
 				762FEAA62AB6144A004B1D64 /* Forecast.swift in Sources */,
 				762FEAAC2AB62941004B1D64 /* CurrentWeatherView.swift in Sources */,
-				762FEAB72AB631E5004B1D64 /* Preferences.swift in Sources */,
 				762FEA7C2AB5FF14004B1D64 /* WeatherApp.swift in Sources */,
 				762FEAAA2AB628E8004B1D64 /* Weather.swift in Sources */,
 				762FEAB02AB62AF8004B1D64 /* CurrentCityView.swift in Sources */,

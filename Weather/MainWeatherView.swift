@@ -10,7 +10,7 @@ import SwiftUI
 struct MainWeatherView: View {
     let currentWeather: Weather
     let futureForecasts: [Forecast]
-    @ObservedObject var currentPreferences: Preferences
+    @Binding var isNight: Bool
     
     var body: some View {
         VStack {
@@ -19,7 +19,7 @@ struct MainWeatherView: View {
             
             CurrentWeatherView(
                 currentWeather: currentWeather,
-                currentPreferences: currentPreferences
+                isNight: $isNight
             )
                 .padding(.bottom, 42)
             
@@ -53,7 +53,7 @@ struct MainWeatherView: View {
                 Forecast(id: 4, day: "FRI", icon: "sunset.fill", temperature: 60),
                 Forecast(id: 5, day: "SAT", icon: "moon.stars.fill", temperature: 55),
             ],
-            currentPreferences: Preferences()
+            isNight: .constant(false)
         )
     }
     
